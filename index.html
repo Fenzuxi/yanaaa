@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Navigasi JavaScript</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* NAVBAR */
+nav {
+    background: #2c3e50;
+    padding: 15px;
+    text-align: center;
+}
+
+nav button {
+    background: none;
+    border: none;
+    color: white;
+    margin: 0 20px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+nav button:hover {
+    color: #1abc9c;
+}
+
+/* HALAMAN */
+.page {
+    display: none;
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.page h2 {
+    color: #2c3e50;
+}
+</style>
+</head>
+<body>
+
+<!-- NAVIGASI -->
+<div id="header"></div>
+
+<!-- BERANDA -->
+<div id="beranda" class="page">
+    <h2>Beranda</h2>
+    <p>Selamat datang di website kami.</p>
+</div>
+
+<!-- PROFIL -->
+<div id="profil" class="page">
+    <h2>Profil</h2>
+    <p>Kami adalah pengembang website pemula.</p>
+</div>
+
+<!-- LAYANAN -->
+<div id="layanan" class="page">
+    <h2>Layanan</h2>
+    <p>Pembuatan Website, UI/UX Design, Web Programming.</p>
+</div>
+
+<!-- KONTAK -->
+<div id="kontak" class="page">
+    <h2>Kontak</h2>
+    <p>Email: mlyanaaa25@gmail.com</p>
+</div>
+<div id="footer"></div>
+
+<!-- JAVASCRIPT -->
+<script>
+    fetch("header.html")
+  .then(res => res.text())
+  .then(data => document.getElementById("header").innerHTML = data);
+
+
+  fetch("footer.html")
+  .then(res => res.text())
+  .then(data => document.getElementById("footer").innerHTML = data);
+  
+function showPage(pageId) {
+    let pages = document.getElementsByClassName("page");
+    for (let i = 0; i < pages.length; i++) {
+        pages[i].style.display = "none";
+    }
+    document.getElementById(pageId).style.display = "block";
+}
+
+// tampilkan beranda pertama kali
+showPage("beranda");
+</script>
+
+</body>
+</html>
